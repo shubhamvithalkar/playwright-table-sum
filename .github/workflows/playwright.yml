@@ -7,6 +7,7 @@ on:
 jobs:
   scrape:
     runs-on: ubuntu-latest
+
     steps:
       - name: Step 24f1002702@ds.study.iitm.ac.in
         run: echo "Starting scraping job"
@@ -21,8 +22,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          npm install
-          npx playwright install --with-deps
+          npm ci || npm install
+          npx playwright install chromium --with-deps
 
       - name: Run scraper
         run: node scrape.js
